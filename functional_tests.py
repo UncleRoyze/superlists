@@ -29,12 +29,13 @@ class NewVisitorTest(unittest.TestCase):
     	inputbox.send_keys('Kiss Chien Mien Mien')
     	inputbox.send_keys(Keys.ENTER)
 
-    	self.check_for_row_in_list_table('1. Kiss Chien Mien Mien')
+    	self.check_for_row_in_list_table('1: Kiss Chien Mien Mien')
 
+    	inputbox = self.browser.find_element_by_id('id_new_item')
     	inputbox.send_keys('Kiss Chien Mien Mien again!')
     	inputbox.send_keys(Keys.ENTER)
 
-    	self.check_for_row_in_list_table('2. Kiss Chien Mien Mien again!')
+    	self.check_for_row_in_list_table('2: Kiss Chien Mien Mien again!')
 
     	self.fail('Finish the test!')
 
