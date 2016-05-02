@@ -23,10 +23,14 @@ class NewVisitorTest(unittest.TestCase):
 
     	inputbox.send_keys('Kiss Chien Mien Mien')
     	inputbox.send_keys(Keys.ENTER)
+    	inputbox.send_keys('Kiss Chien Mien Mien again!')
+    	inputbox.send_keys(Keys.ENTER)
 
     	table = self.browser.find_element_by_id('id_list_table')
     	rows = table.find_elements_by_tag_name('tr')
-    	self.assertTrue(any(row.text == '1. Kiss Chien Mien Mien' for row in rows), "New to-do item did not appear in table")
+    	# self.assertTrue(any(row.text == '1. Kiss Chien Mien Mien' for row in rows), "New to-do item did not appear in table -- its text was:\n%s" % table.text)
+    	self.assertIn('1. Kiss Chien Mien Mien', [row.text for row in rows])
+    	self.assertIn('2. Kiss Chien Mien Mien again', [row.text for row in rows])
 
     	self.fail('Finish the test!')
 
