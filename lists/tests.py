@@ -55,7 +55,7 @@ class NewListTest(TestCase):
 
         new_list = List.objects.first()
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(response['location'], '/lists/%d/' % new_list.id)
+        # self.assertEqual(response['location'], '/lists/%d/' % new_list.id)
         self.assertRedirects(response, '/lists/%d/' % new_list.id)
 
 
